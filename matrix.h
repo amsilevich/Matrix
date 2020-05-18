@@ -278,7 +278,7 @@ namespace FindDegree {
 
 //...........................................ARRAY_FUNCTIONS..................................................
 
-template<unsigned N, unsigned M, typename Field = Rational>
+template<unsigned N, unsigned M, typename Field = double>
 Field** generateArray() {
     Field** arr = new Field * [N];
     for (unsigned i = 0; i < N; ++i) {
@@ -290,7 +290,7 @@ Field** generateArray() {
     return arr;
 }
 
-template<unsigned N, unsigned M, typename Field = Rational>
+template<unsigned N, unsigned M, typename Field = double>
 void fillArray(Field**& arr, Field** otherArr) {
     for (unsigned i = 0; i < N; ++i) {
         for (unsigned j = 0; j < M; ++j) {
@@ -299,7 +299,7 @@ void fillArray(Field**& arr, Field** otherArr) {
     }
 }
 
-template<unsigned N, unsigned M, typename Field = Rational>
+template<unsigned N, unsigned M, typename Field = double>
 void deleteArray(Field**& a) {
     for (unsigned i = 0; i < N; ++i) {
         delete[] a[i];
@@ -308,14 +308,14 @@ void deleteArray(Field**& a) {
 }
 
 //.........................RATIONAL.....................................
-
+/*
 Rational abs(const Rational& num) {
     return (num >= 0) ? num : -num;
 }
-
+*/
 //.........................................BASEMATRIX.............................................................
 
-template<unsigned N, unsigned M, typename Field = Rational> //finite<K>, K != simple
+template<unsigned N, unsigned M, typename Field = double> //finite<K>, K != simple
 class BaseMatrix {
 protected:
     Field** a;
@@ -803,7 +803,7 @@ unsigned BaseMatrix<N, M, Field>::rank() const {
 
 //............................SQUARE_MATRIX....................................................................
 
-template<unsigned N, typename Field = Rational>
+template<unsigned N, typename Field = double>
 class SquareMatrix : public BaseMatrix<N, N, Field> {
 public:
     SquareMatrix();
